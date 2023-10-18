@@ -1,0 +1,19 @@
+name: Aprendiendo Github Actions
+run-name: Estoy aprendiendo Github Actions!!!
+on: [push]
+jobs:
+  hola-mundo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: Correr script
+        run: python main.py
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
